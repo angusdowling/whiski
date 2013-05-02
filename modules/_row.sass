@@ -1,0 +1,11 @@
+// We use this to set rows, useful for forms, navigation, anything where we know a fixed amount of items will be used.
+@mixin row($columns: 4, $margin: 1.5%)
+	$width: (100% - $margin*($columns - 1)) / $columns
+	display: block
+	white-space: nowrap
+	.-l
+		display: inline-block
+		margin-left: $margin
+		width: $width
+		&:first-child()
+			margin-left: 0	
