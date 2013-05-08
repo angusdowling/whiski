@@ -1,7 +1,7 @@
 // Responsive Grid. Support down to IE9, IE8 use selectivzr. shaunewest.com documentation coming soon.
 @mixin grid($s, $i: 4, $mh: 1.5%, $mv: $mh)
 	$w: (100% - $mh * ($i - 1)) / $i
-	#{$s}
+	>#{$s}
 		float: left
 		margin-top: $mv
 		width: $w
