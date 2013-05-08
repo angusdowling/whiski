@@ -1,5 +1,21 @@
 // Responsive Grid. Support down to IE9, IE8 use selectivzr. shaunewest.com documentation coming soon.
-@mixin grid($i: 4, $mh: 1.5%, $mv: $mh)
+@mixin grid($s, $i: 4, $mh: 1.5%, $mv: $mh)
+	$w: (100% - $mh * ($i - 1)) / $i
+	#{$s}
+		float: left
+		margin-top: $mv
+		width: $w
+		margin-right: 0	
+		&:nth-child(#{$i}n)
+			margin-right: 0	
+		&:nth-child(#{$i}n+1)
+			clear: both
+		&:not(:nth-child(#{$i}n+1))
+			clear: none
+		&:not(:nth-child(#{$i}n))
+			margin-right: $mh
+
+@mixin grid-child($i: 4, $mh: 1.5%, $mv: $mh)
 	$w: (100% - $mh * ($i - 1)) / $i
 	float: left
 	margin-top: $mv
