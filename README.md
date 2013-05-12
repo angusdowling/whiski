@@ -1,2 +1,2 @@
-Whisky
+Sass Framework
 ======
