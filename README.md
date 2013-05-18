@@ -4,13 +4,7 @@ Currently under extreme beta.
 
 Notes:
 <ul>
-<li>Seperate UI elements and prefix, eg;
-  .ui-row
-    .ui-block4
-      .module-title
-    .ui-block8
-      .module-title
-</li>
+<li>Seperate UI elements and prefix, eg; .ui-row > .ui-block4 > .module-title | .ui-block8 > .module-title </li>
 </ul>
 
 <ul>
