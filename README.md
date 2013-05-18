@@ -5,6 +5,10 @@ Currently under extreme beta.
 Notes:
 <ul>
 <li>Seperate UI elements and prefix, eg; .ui-row > .ui-block4 > .module-title | .ui-block8 > .module-title </li>
+<li>Test Padding on blocks Vs Negative margin
+<ul><li>Padding in px keeps consistent spacing</li></ul>
+</li>
+
 </ul>
 
 <ul>
