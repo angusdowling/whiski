@@ -3,7 +3,9 @@ Sass Framework
 Currently under extreme beta.
 
 Notes:
-- seperating the webpage will work well so you have a layer purely for UI/UX
+
+
+<del>- seperating the webpage will work well so you have a layer purely for UI/UX</del>
 - a layer for modules, so a product item on a grid
 - write the templates with layer UI/UX
 - site works completely then you drop your blocks in
