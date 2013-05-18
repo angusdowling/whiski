@@ -3,9 +3,18 @@ Sass Framework
 Currently under extreme beta.
 
 Notes:
+<ul>
+<li>Seperate UI elements and prefix, eg;
+  .ui-row
+    .ui-block4
+      .module-title
+    .ui-block8
+      .module-title
+</li>
+</ul>
 
 <ul>
-<li><del>- seperating the webpage will work well so you have a layer purely for UI/UX</del></li>
+<li><del>seperating the webpage will work well so you have a layer purely for UI/UX</del></li>
 <li> a layer for modules, so a product item on a grid</li>
 <li>write the templates with layer UI/UX</li>
 <li>site works completely then you drop your blocks in</li>
