@@ -1,3 +1,4 @@
+$development-mode: true
 =ui-grid($totalColumns, $margin)
 	.ui-row
 		display: block
@@ -7,38 +8,42 @@
 		@if ($development-mode == true)
 			.ui-row
 				margin-top: -1px
-			[class*="span"]
+			[class*="column"]
 				margin-top: 1px
 				min-height: 50px
 				+animate("background-color", 50ms)
 				&:hover
 					background-color: darken(rgb(245, 245, 245),5%)
-					[class*="span"]:hover
+					[class*="column"]:hover
 						background-color: darken(rgb(245, 245, 245),10%)
-						[class*="span"]:hover
+						[class*="column"]:hover
 							background-color: darken(rgb(245, 245, 245),15%)							
 			*:not([class*="ui-"])
 				opacity: .0
-	[class*="span"]
+
+	[class*="column"]
+		width: 100%
+	[class*="column"]
 		float: left
 		padding: 0 ($margin/2)
 		position: relative
 		background-color: rgb(245, 245, 245)
 		outline: 1px solid rgb(229, 229, 229)
 		outline: 1px solid rgb(155, 150, 150)
-	[class*="span"] + [class*="span"]:last-child
+	[class*="column"] + [class*="column"]:last-child
 		float: right
-	@for $i from 1 through $totalColumns
-		.ui-span#{$i}
-			width: percentage(($i/$totalColumns))
+	+media(tablet)	
+		@for $i from 1 through $totalColumns
+			.ui-column#{$i}
+				width: percentage(($i/$totalColumns))
 
 
 @if ($development-mode == true)
-	[class*="span"]:before
+	[class*="column"]:before
 		content: attr(class) attr(style)
 		position: absolute
 		top: 0
 		left: 0
 		opacity: .5
-	[class*="span"]:hover:before
+	[class*="column"]:hover:before
 		opacity: 1
