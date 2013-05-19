@@ -23,3 +23,7 @@ Notes:
 Thoughts
 - "its like a house to most people a house is just filled with 'rooms', to a rofessional architect he'll have an atrium, an entertaining room, a family room, a dining room... and whatever other jargon he'll use the fact that developers dont have a consistent naming convention for sites means that the point of semantic markup early loses its meaning it might be optimised and semantic for you but the next dev who comes along onto the project might've been calling his #header #top-bar"
 - "to use a language that is easily accessable by all. less vauge. such as .tab , .pane or .products.grid"
+
+
+<h3>Big thanks to the following:</h3>
+Social Icon set by: http://fairheadcreative.com
