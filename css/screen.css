@@ -1,0 +1,9 @@
+[class*="column"]:before {
+  content: attr(class) attr(style);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5; }
+
+[class*="column"]:hover:before {
+  opacity: 1; }

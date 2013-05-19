@@ -1,12 +1,14 @@
-$development-mode: true
+$development-mode: false
 =ui-grid($totalColumns, $margin)
-	.ui-row
+	.ui-grid [class*="column"]
+		padding: ($margin/2) ($margin/2)
+	.ui-row, .ui-grid
 		display: block
 		margin-left: -($margin/2)
 		margin-right: -($margin/2)
 		+clearfix
 		@if ($development-mode == true)
-			.ui-row
+			.ui-row, .ui-grid
 				margin-top: -1px
 			[class*="column"]
 				margin-top: 1px
@@ -44,6 +46,6 @@ $development-mode: true
 		position: absolute
 		top: 0
 		left: 0
-		opacity: .5
+		// opacity: .5
 	[class*="column"]:hover:before
 		opacity: 1
