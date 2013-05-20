@@ -1,51 +1,37 @@
-$development-mode: false
+$min-site-width: 960px
+$max-site-width: 1000px
+
 =ui-grid($totalColumns, $margin)
-	.ui-grid [class*="column"]
-		padding: ($margin/2) ($margin/2)
-	.ui-row, .ui-grid
+	.ui-row, 
 		display: block
 		margin-left: -($margin/2)
 		margin-right: -($margin/2)
+		// ^^ needs testing
 		+clearfix
-		@if ($development-mode == true)
-			.ui-row, .ui-grid
-				margin-top: -1px
-			[class*="column"]
-				margin-top: 1px
-				min-height: 50px
-				+animate("background-color", 50ms)
-				&:hover
-					background-color: darken(rgb(245, 245, 245),5%)
-					[class*="column"]:hover
-						background-color: darken(rgb(245, 245, 245),10%)
-						[class*="column"]:hover
-							background-color: darken(rgb(245, 245, 245),15%)							
-			*:not([class*="ui-"])
-				opacity: .0
-
-	[class*="column"]
-		width: 100%
 	[class*="column"]
 		float: left
 		padding: 0 ($margin/2)
 		position: relative
+		// Pretty
 		background-color: rgb(245, 245, 245)
 		outline: 1px solid rgb(229, 229, 229)
 		outline: 1px solid rgb(155, 150, 150)
+		// ^^ Remove skirt  in production edition
 	[class*="column"] + [class*="column"]:last-child
 		float: right
-	+media(tablet)	
-		@for $i from 1 through $totalColumns
-			.ui-column#{$i}
-				width: percentage(($i/$totalColumns))
+		// ^^ Questional?
+	@for $i from 1 through $totalColumns
+		.ui-column#{$i}
+			width: percentage(($i/$totalColumns))
 
+.ui-centered
+	position: relative
+	margin-left: auto
+	margin-right: auto
+	float: none !important
+	// ^^ Important nessercary?
 
-@if ($development-mode == true)
-	[class*="column"]:before
-		content: attr(class) attr(style)
-		position: absolute
-		top: 0
-		left: 0
-		// opacity: .5
-	[class*="column"]:hover:before
-		opacity: 1
+.ui-container
+	margin-right: auto
+	margin-left: auto
+	max-width: 900px

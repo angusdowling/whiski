@@ -1,16 +1,20 @@
-=media($device)
-	@if $device == phone
-		@media only screen and (min-width : 0px)
-			@content
+// $phone = "0, 480"
+// $list($phone, )
+// // =media($device, $condition)
 
-	@if $device == tablet
-		@media only screen and (min-width : 481px)
-			@content
 
-	@if $device == desktop
-		@media only screen and (min-width : 1024px)
-			@content
+// @media only screen and (min-width : nth($phone, 1)px) and (max-width : nth($phone, 2)px)
+// 	.shit
+// 		display: red
 
-	@if $device == retina
-		@media only screen and (-webkit-min-device-pixel-ratio: 2)
-			@content
+	// @if $device == tablet
+	// 	@media only screen and (min-width : 481px)
+	// 		@content
+
+	// @if $device == desktop
+	// 	@media only screen and (min-width : 1024px)
+	// 		@content
+
+	// @if $device == retina
+	// 	@media only screen and (-webkit-min-device-pixel-ratio: 2)
+	// 		@content
