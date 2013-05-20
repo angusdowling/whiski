@@ -4,10 +4,14 @@ $max-site-width: 1000px
 =ui-grid($totalColumns, $margin)
 	.ui-row, 
 		display: block
-		margin-left: -($margin/2)
-		margin-right: -($margin/2)
+		// margin-left: -($margin/2)
+		// margin-right: -($margin/2)
 		// ^^ needs testing
 		+clearfix
+	.ui-row [class*="column"] .ui-row
+		margin-left: - ($margin/2)
+		margin-right: - ($margin/2)
+		// Infinity nesting???
 	[class*="column"]
 		float: left
 		padding: 0 ($margin/2)
@@ -20,9 +24,34 @@ $max-site-width: 1000px
 	[class*="column"] + [class*="column"]:last-child
 		float: right
 		// ^^ Questional?
+	[class*="column"]:before
+		content: attr(class)
+		float: left
+		// background: red
+		top: 0
+		left: 0
+		width: 100%
+		overflow: hidden
+		margin-right: $margin
+		white-space: nowrap
+		// ^^ Developmer mode
 	@for $i from 1 through $totalColumns
-		.ui-column#{$i}
+		.ui-column#{$i}, %ui-column#{$i}
 			width: percentage(($i/$totalColumns))
+
+
+	$i: 0
+	$selector1: "[class*='column']"
+	$id: $selector1
+	$darken: 0
+	@while $i < 6
+		$selector1: unquote($selector1) 
+		$id: unquote($id+":before") 
+		$i: $i+1
+		$darken: $darken + 10
+		#{$id}
+			background-color: darken(#e9eaef, $darken)
+		$id: join($selector1, $id)
 
 .ui-centered
 	position: relative
@@ -34,4 +63,4 @@ $max-site-width: 1000px
 .ui-container
 	margin-right: auto
 	margin-left: auto
-	max-width: 900px
+	max-width: 960px
