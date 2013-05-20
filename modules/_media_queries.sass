@@ -1,20 +1,11 @@
-// $phone = "0, 480"
-// $list($phone, )
-// // =media($device, $condition)
-
-
-// @media only screen and (min-width : nth($phone, 1)px) and (max-width : nth($phone, 2)px)
-// 	.shit
-// 		display: red
-
-	// @if $device == tablet
-	// 	@media only screen and (min-width : 481px)
-	// 		@content
-
-	// @if $device == desktop
-	// 	@media only screen and (min-width : 1024px)
-	// 		@content
-
-	// @if $device == retina
-	// 	@media only screen and (-webkit-min-device-pixel-ratio: 2)
-	// 		@content
+//+media(tablet)
+// Set devices here. $device :name, min-width, max-width
+$phone: phone, 0px, 480px
+$tablet: tablet, 481px, 900px
+$desktop: desktop, 901px, 0px
+// Do the work
+=media($media)
+	@each $device in $phone, $tablet
+		@if ($media == nth($device, 1))
+			@media only screen and (min-width : nth($device, 2))
+				@content

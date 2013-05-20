@@ -1,17 +1,14 @@
 $min-site-width: 960px
 $max-site-width: 1000px
 
+
 =ui-grid($totalColumns, $margin)
 	.ui-row, 
 		display: block
-		// margin-left: -($margin/2)
-		// margin-right: -($margin/2)
-		// ^^ needs testing
 		+clearfix
-	.ui-row [class*="column"] .ui-row
-		margin-left: - ($margin/2)
-		margin-right: - ($margin/2)
-		// Infinity nesting???
+		.ui-row
+			margin-left: - ($margin/2)
+			margin-right: - ($margin/2)
 	[class*="column"]
 		float: left
 		padding: 0 ($margin/2)
@@ -20,7 +17,7 @@ $max-site-width: 1000px
 		background-color: rgb(245, 245, 245)
 		outline: 1px solid rgb(229, 229, 229)
 		outline: 1px solid rgb(155, 150, 150)
-		// ^^ Remove skirt  in production edition
+		// ^^ Remove skirt in production edition
 	[class*="column"] + [class*="column"]:last-child
 		float: right
 		// ^^ Questional?
@@ -36,22 +33,16 @@ $max-site-width: 1000px
 		white-space: nowrap
 		// ^^ Developmer mode
 	@for $i from 1 through $totalColumns
-		.ui-column#{$i}, %ui-column#{$i}
+		.ui-col-#{$i}, %ui-col-#{$i}
+			width: percentage(($i/$totalColumns))
+	@for $i from 1 through $totalColumns
+		.ui-offset-#{$i}, %ui-offset-#{$i}
+			width: percentage(($i/$totalColumns))
+	@for $i from 1 through $totalColumns
+		.ui-offset-#{$i}, %ui-offset-#{$i}
 			width: percentage(($i/$totalColumns))
 
 
-	$i: 0
-	$selector1: "[class*='column']"
-	$id: $selector1
-	$darken: 0
-	@while $i < 6
-		$selector1: unquote($selector1) 
-		$id: unquote($id+":before") 
-		$i: $i+1
-		$darken: $darken + 10
-		#{$id}
-			background-color: darken(#e9eaef, $darken)
-		$id: join($selector1, $id)
 
 .ui-centered
 	position: relative
