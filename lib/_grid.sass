@@ -20,7 +20,7 @@ $grid-last-column: false
 		[class*="col-"] + [class*="col-"]:last-child
 			float: right
 	@for $i from 1 through $grid-columns
-		.col-#{$i}
+		.col-#{$i}, %col-#{$i}
 			width: percentage($i/$grid-columns)
 		.col-offset-#{$i}
 			margin-left: percentage($i/$grid-columns)
@@ -28,7 +28,7 @@ $grid-last-column: false
 			right: percentage($i/$grid-columns)
 		.col-push-#{$i}
 			right: percentage($i/$grid-columns)
-			
+
 // For the semantics
 =row($behavior: false)
 	display: block
@@ -37,19 +37,15 @@ $grid-last-column: false
 		margin-right: - ($grid-margin/2)
 	+clearfix
 =col($i)
+	@extend [class*="col-"]
 	width: percentage($i/$grid-columns)
-	position: relative
-	float: left
 	@content
 =offset($i)
-	position: relative
-	float: left
+	@extend [class*="col-"]
 	margin-left: percentage($i/$grid-columns)
 =push($i)
-	position: relative
-	float: left
+	@extend [class*="col-"]
 	left: percentage($i/$grid-columns)
 =pull($i)
-	position: relative
-	float: left
+	@extend [class*="col-"]
 	right: percentage($i/$grid-columns)
