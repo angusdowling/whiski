@@ -1,0 +1,54 @@
+// Grid Options
+$grid-semtantic: true
+$grid-by-class: true
+$grid-columns: 12
+$grid-margin: 10px
+$grid-last-column: false
+// For the strap-ons
+=grid()
+	.row, 
+		display: block
+		+clearfix
+		.row
+			margin-left: - ($grid-margin/2)
+			margin-right: - ($grid-margin/2)
+	[class*="col-"]
+		float: left
+		padding: 0 ($grid-margin/2)
+		position: relative
+	@if $grid-last-column
+		[class*="col-"] + [class*="col-"]:last-child
+			float: right
+	@for $i from 1 through $grid-columns
+		.col-#{$i}
+			width: percentage($i/$grid-columns)
+		.col-offset-#{$i}
+			margin-left: percentage($i/$grid-columns)
+		.col-pull-#{$i}
+			right: percentage($i/$grid-columns)
+		.col-push-#{$i}
+			right: percentage($i/$grid-columns)
+// For the semantics
+=row($behavior: false)
+	display: block
+	@if $behavior == nest
+		margin-left: - ($grid-margin/2)
+		margin-right: - ($grid-margin/2)
+	+clearfix
+=col($i)
+	width: percentage($i/$grid-columns)
+	position: relative
+	float: left
+	@content
+=offset($i)
+	position: relative
+	float: left
+	margin-left: percentage($i/$grid-columns)
+=push($i)
+	position: relative
+	float: left
+	left: percentage($i/$grid-columns)
+=pull($i)
+	position: relative
+	float: left
+	right: percentage($i/$grid-columns)

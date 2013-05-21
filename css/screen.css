@@ -1,8 +1,0 @@
-.shit {
-  display: "only screen and (min-width : 0) and (max-width : nth($device, 3))"; }
-
-.shit {
-  display: "only screen and (min-width : 481px) and (max-width : nth($device, 3))"; }
-
-.shit {
-  display: "only screen and (min-width : 901px) and (max-width : nth($device, 3))"; }
