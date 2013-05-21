@@ -1,0 +1,56 @@
+// Responsive Grid. Support down to IE9, IE8 use selectivzr.
+// =grid($s, $i: 4, $mh: 1.5%, $mv: $mh)
+// 	$w: (100% - $mh * ($i - 1)) / $i
+// 	>#{$s}
+// 		float: left
+// 		margin-top: $mv
+// 		width: $w
+// 		margin-right: 0	
+// 		&:nth-child(#{$i}n)
+// 			margin-right: 0	
+// 		&:nth-child(#{$i}n+1)
+// 			clear: both
+// 		&:not(:nth-child(#{$i}n+1))
+// 			clear: none
+// 		&:not(:nth-child(#{$i}n))
+// 			margin-right: $mh
+
+// =grid-child($i: 4, $mh: 1.5%, $mv: $mh)
+// 	$w: (100% - $mh * ($i - 1)) / $i
+// 	float: left
+// 	margin-top: $mv
+// 	width: $w
+// 	margin-right: 0	
+// 	&:nth-child(#{$i}n)
+// 		margin-right: 0	
+// 	&:nth-child(#{$i}n+1)
+// 		clear: both
+// 	&:not(:nth-child(#{$i}n+1))
+// 		clear: none
+// 	&:not(:nth-child(#{$i}n))
+// 		margin-right: $mh
+
+// @mixin row($columns: 4, $margin: 1.5%)
+// 	$width: (100% - $margin*($columns - 1)) / $columns
+// 	display: block
+// 	white-space: nowrap
+// 	.-l
+// 		display: inline-block
+// 		margin-left: $margin
+// 		width: $width
+// 		&:first-child
+// 			margin-left: 0	
+
+
+// =even
+// 	&:nth-child(even)
+// 		@content
+// =odd
+// 	&:nth-child(odd)
+// 		@content
+// =left($w:10%)
+// 	float: left
+// 	width: $w
+// =right($w:10%)
+// 	float: right
+// 	width: $w

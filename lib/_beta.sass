@@ -1,0 +1,34 @@
+// Grid Options
+$grid-semtantic: true
+$grid-by-class: true
+$grid-columns: 12
+$grid-margin: 10px
+$grid-last-column: false
+
+=grid-create()
+	.ui-row, 
+		display: block
+		+clearfix
+		.ui-row
+			margin-left: - ($grid-margin/2)
+			margin-right: - ($grid-margin/2)
+	[class*="ui-col-"]
+		float: left
+		padding: 0 ($grid-margin/2)
+		position: relative
+	@if $grid-last-column
+		[class*="ui-col-"] + [class*="ui-col-"]:last-child
+			float: right
+	@if $grid-semtantic
+		+ui--create-grid-structure("%")
+	@if $grid-by-class
+		+ui--create-grid-structure(".")
+
+=ui--create-grid-structure($selecter:false)
+	@for $i from 1 through $grid-columns
+		#{$selecter}ui-col-#{$i}, #{$selecter}ui-offset-#{$i}
+			width: percentage($i/$grid-columns)
+		#{$selecter}ui-pull-#{$i}
+			right: percentage($i/$grid-columns)
+		#{$selecter}ui-push-#{$i}
+			right: percentage($i/$grid-columns)
