@@ -26,4 +26,4 @@ Thoughts
 
 
 <h3>Big thanks to the following:</h3>
-Social Icon set by: http://fairheadcreative.com
+FontAwesome, for being awesome.
