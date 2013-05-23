@@ -1,45 +1,64 @@
+// Grid Options
+$grid-semtantic: true!default
+$grid-by-class: false!default
+$grid-total-columns: 12!default
+$column-gutter: 12px!default
+$grid-last-column: false!default
+
 // For the strap-ons
 =grid()
-	.row,
+	.row
 		display: block
 		+clearfix
 		.row
-			margin-left: - ($grid-margin/2)
-			margin-right: - ($grid-margin/2)
+			margin-left: - ($column-gutter/2)
+			margin-right: - ($column-gutter/2)
 	[class*="col-"]
 		float: left
-		padding: 0 ($grid-margin/2)
+		padding-left: $column-gutter / 2
+		padding-right: $column-gutter / 2
 		position: relative
 	@if $grid-last-column
 		[class*="col-"] + [class*="col-"]:last-child
 			float: right
-	@for $i from 1 through $grid-columns
+	@for $i from 1 through $grid-total-columns
 		.col-#{$i}, %col-#{$i}
-			width: percentage($i/$grid-columns)
+			width: percentage($i/$grid-total-columns)
 		.col-offset-#{$i}
-			margin-left: percentage($i/$grid-columns)
+			margin-left: percentage($i/$grid-total-columns)
 		.col-pull-#{$i}
-			right: percentage($i/$grid-columns)
+			right: percentage($i/$grid-total-columns)
 		.col-push-#{$i}
-			right: percentage($i/$grid-columns)
+			right: percentage($i/$grid-total-columns)
 
 // For the semantics
 =row($behavior: false)
-	display: block
 	@if $behavior == nest
-		margin-left: - ($grid-margin/2)
-		margin-right: - ($grid-margin/2)
+		margin-left: -($column-gutter/2)
+		margin-right: -($column-gutter/2)
+	display: block
 	+clearfix
-=col($i)
-	@extend [class*="col-"]
-	width: percentage($i/$grid-columns)
-	@content
-=offset($i)
-	@extend [class*="col-"]
-	margin-left: percentage($i/$grid-columns)
-=push($i)
-	@extend [class*="col-"]
-	left: percentage($i/$grid-columns)
-=pull($i)
-	@extend [class*="col-"]
-	right: percentage($i/$grid-columns)
+
+=col($columns:false, $offset:false, $shift:false, $last-column:false, $center:false, $collapse:false)
+	position: relative
+	border: ($column-gutter / 2) double red
+	float: left
+	@if $collapse
+		padding-left: 0
+		padding-right: 0
+	@else if $collapse == false
+		padding-left: $column-gutter / 2
+		padding-right: $column-gutter / 2
+	@if $columns 
+		width: percentage($columns/$grid-total-columns)
+	@if $last-column
+		float: right
+	@if $offset
+		margin-left: percentage($offset/$grid-total-columns)
+	@if $shift
+		left: percentage($shift/$grid-total-columns)
+		right: auto
+	@if $center
+		margin-left: auto
+		margin-right: auto
+		float: none !important
